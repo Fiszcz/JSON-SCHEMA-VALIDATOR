@@ -1,0 +1,8 @@
+{
+  "name": "JSON-SCHEMA-VALIDATOR",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Fiszcz/JSON-SCHEMA-VALIDATOR.git",
+  "author": "Filip Szczesniak <fiszczu@gmail.com>",
+  "license": "MIT"
+}
