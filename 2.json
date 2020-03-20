@@ -1,0 +1,8 @@
+{
+    "$id": "elo",
+    "definitions": {
+        "some_field": {
+            "title": "Some Field"
+        }
+    }
+}

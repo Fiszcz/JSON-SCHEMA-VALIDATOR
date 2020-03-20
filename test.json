@@ -44,8 +44,8 @@
                 },
                 "zip_code": {
                     "type": "string",
-                    "minLength﻿": 5,
-                    "maxLength﻿": 6
+                    "minLength": 5,
+                    "maxLength": 6
                 }
             }
         }

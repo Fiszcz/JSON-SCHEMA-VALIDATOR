@@ -3,6 +3,16 @@ import {getPlaceInCodeRepresentation} from "./utils/print";
 import {isBeginningOfJSONnumber, isFragmentOfNumber, isJSONnumber} from "./utils/matchers";
 import chalk from "chalk";
 
+export const OPEN_BRACE = 'OPEN_BRACE';
+export const CLOSE_BRACE = 'CLOSE_BRACE';
+export const OPEN_ARRAY = 'OPEN_ARRAY';
+export const CLOSE_ARRAY = 'CLOSE_ARRAY';
+export const QUOTE = 'QUOTE';
+export const TEXT = 'TEXT';
+export const NUMBER = 'NUMBER';
+export const COLON = 'COLON';
+export const COMMA = 'COMMA';
+
 export const lexer = (contentOfFile: string) => {
     const tokens: Token[] = [];
 
@@ -64,7 +74,7 @@ export const lexer = (contentOfFile: string) => {
                         const number = textFromBeginningOfNumber.slice(0, indexOfSign);
                         if (isJSONnumber(number)) {
                             tokens.push(createToken("NUMBER", numberOfLine, numberOfCol, Number(number)));
-                            numberOfCol += indexOfSign;
+                            numberOfCol += indexOfSign - 1;
                             break;
                         } else {
                             console.error(chalk.red(`Number: "${number}" is not proper number representation. ${getPlaceInCodeRepresentation(numberOfLine, numberOfCol)}`));
@@ -84,7 +94,7 @@ export const lexer = (contentOfFile: string) => {
 };
 
 const createToken = (tokenType: TypeOfToken, numberOfLine: number, numberOfCol: number, value?: string | number): Token => {
-    console.log(chalk.blue(`[${tokenType}]`) + ' - ' + chalk.magenta(`[${numberOfLine}, ${numberOfCol}]` + chalk.white((value ? '   ' + value : ''))));
+    console.log(chalk.blue(`[${tokenType}]`) + ' - ' + chalk.magenta(`[${numberOfLine}, ${numberOfCol}]` + chalk.white((value !== undefined ? '   ' + value : ''))));
 
     return {
         numberOfLine,
