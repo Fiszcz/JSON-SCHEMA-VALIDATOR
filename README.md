@@ -1,4 +1,5 @@
 # JSON-Schema Walidator
+##### ~ Filip Szcześniak
 
 ### Wymagane technologie do uruchomienia walidatora
 
