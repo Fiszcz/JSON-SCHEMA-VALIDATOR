@@ -8,7 +8,7 @@ const defs = () => [QUOTE, 'definitions', QUOTE, COLON, OPEN_BRACE, kSch, multip
 const kSch = () => [string, COLON, OPEN_BRACE, JSch, CLOSE_BRACE];
 const JSch = () => [res, multiple([COMMA, res])];
 const res = () => [OR([type, title, description, strRes, numRes, objRes, enumRes, refSch])];
-const type = () => [QUOTE, 'type', QUOTE, COLON, OR([[typename, multiple([COMMA, typename])], typename])];
+const type = () => [QUOTE, 'type', QUOTE, COLON, OR([[OPEN_ARRAY, typename, multiple([COMMA, typename]), CLOSE_ARRAY], typename])];
 const typename = () => [QUOTE, OR(['string', 'integer', 'number', 'boolean', 'null', 'array', 'object']), QUOTE];
 const title = () => [QUOTE, 'title', QUOTE, COLON, string];
 const description = () => [QUOTE, 'description', QUOTE, COLON, string];

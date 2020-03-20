@@ -6,6 +6,32 @@
         },
         "enum_field": {
             "enum": ["some string", true, false, 2323, "null", [32, 33], {"10": 3, "dsd": "elo"}]
+        },
+        "number_field": {
+            "minimum": 10,
+            "maximum": 20
+        },
+        "object_field": {
+            "required": ["first_field", "second_field"],
+            "properties": {
+                "first_field": {
+                    "minimum": 20
+                },
+                "second_field": {
+                    "description": "description of second field"
+                }
+            }
+        },
+        "field_from_ref": {
+            "$ref": "#10"
+        },
+        "field_with_defined_type": {
+            "type": ["string", "number", "boolean"]
+        },
+        "field_with_single_type": {
+            "type": "string"
         }
-    }
+    },
+    "$schema": "#22",
+    "type": ["object"]
 }
