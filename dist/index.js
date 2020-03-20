@@ -659,6 +659,14 @@ exports.lexer = (contentOfFile) => {
                             process.exit();
                         }
                     }
+                    else if (lineOfCode.substr(numberOfCol, 4) === 'true') {
+                        tokens.push(createToken('TEXT', numberOfLine, numberOfCol + 1, 'true'));
+                        numberOfCol += 3;
+                    }
+                    else if (lineOfCode.substr(numberOfCol, 5) === 'false') {
+                        tokens.push(createToken('TEXT', numberOfLine, numberOfCol + 1, 'false'));
+                        numberOfCol += 4;
+                    }
                 }
             }
         }
@@ -1150,7 +1158,7 @@ const defs = () => [lexer_1.QUOTE, 'definitions', lexer_1.QUOTE, lexer_1.COLON, 
 const kSch = () => [string, lexer_1.COLON, lexer_1.OPEN_BRACE, JSch, lexer_1.CLOSE_BRACE];
 const JSch = () => [res, variantsOfRules_1.multiple([lexer_1.COMMA, res])];
 const res = () => [variantsOfRules_1.OR([type, title, description, strRes, numRes, objRes, enumRes, refSch])];
-const type = () => [lexer_1.QUOTE, 'type', lexer_1.QUOTE, lexer_1.COLON, variantsOfRules_1.OR([[typename, variantsOfRules_1.multiple([lexer_1.COMMA, typename])], typename])];
+const type = () => [lexer_1.QUOTE, 'type', lexer_1.QUOTE, lexer_1.COLON, variantsOfRules_1.OR([[lexer_1.OPEN_ARRAY, typename, variantsOfRules_1.multiple([lexer_1.COMMA, typename]), lexer_1.CLOSE_ARRAY], typename])];
 const typename = () => [lexer_1.QUOTE, variantsOfRules_1.OR(['string', 'integer', 'number', 'boolean', 'null', 'array', 'object']), lexer_1.QUOTE];
 const title = () => [lexer_1.QUOTE, 'title', lexer_1.QUOTE, lexer_1.COLON, string];
 const description = () => [lexer_1.QUOTE, 'description', lexer_1.QUOTE, lexer_1.COLON, string];
