@@ -80,6 +80,12 @@ export const lexer = (contentOfFile: string) => {
                             console.error(chalk.red(`Number: "${number}" is not proper number representation. ${getPlaceInCodeRepresentation(numberOfLine, numberOfCol)}`));
                             process.exit();
                         }
+                    } else if (lineOfCode.substr(numberOfCol, 4) === 'true') {
+                        tokens.push(createToken('TEXT', numberOfLine, numberOfCol + 1, 'true'));
+                        numberOfCol += 3;
+                    } else if (lineOfCode.substr(numberOfCol, 5) === 'false') {
+                        tokens.push(createToken('TEXT', numberOfLine, numberOfCol + 1, 'false'));
+                        numberOfCol += 4;
                     }
                 }
             }

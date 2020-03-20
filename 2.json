@@ -3,6 +3,9 @@
     "definitions": {
         "some_field": {
             "title": "Some Field"
+        },
+        "enum_field": {
+            "enum": ["some string", true, false, 2323, "null", [32, 33], {"10": 3, "dsd": "elo"}]
         }
     }
 }

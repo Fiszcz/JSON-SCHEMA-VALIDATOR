@@ -34,7 +34,7 @@ Poniżej prezentuję wykorzystane w projekcie reguły EBNF określające gramaty
 <defs> := "definitions": { <kSch> (, <kSch>)*}
 <kSch> := <kword>: { <JSch> }
 <JSch> := <res> (, <res>)*
-<res> := <type> | <strRes> | <numRes> | <objRes> | <refSch> | <title> | <description>
+<res> := <type> | <strRes> | <numRes> | <objRes> | <refSch> | <title> | <description> | <enum>
 <type> := "type" : ([<typename> (, <typename>)*] | <typename>)
 <typename> := "string" | "integer" | "number" | "boolean" | "null" | "array" | "object"
 <title> := "title":  <string>
