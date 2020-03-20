@@ -52,15 +52,15 @@ Poniżej prezentuję wykorzystane w projekcie reguły EBNF określające gramaty
 #### Reprezentacja własności typu Number
 ```
 <numRes> := <min> | <max>
-<min> := "minimum": <r>
-<max> := "maximum": <r>
+<min> := "minimum": <number>
+<max> := "maximum": <number>
 ```
 
 ### Reprezentacja własności typu String
 ```
 <strRes> :=  <minLen> | <maxLen>
-<minLen> := "minLength": <n>
-<maxLen> := "maxLength": <n>
+<minLen> := "minLength": <number>
+<maxLen> := "maxLength": <number>
 ```
 
 ### Reprezentacja własności typu Enum
